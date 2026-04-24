@@ -1,0 +1,21 @@
+Workflow (.github/workflows/*.yml)
+        ↓
+Runner (Ubuntu VM)
+        ↓
+actions/checkout
+        ↓
+uses: ./  → reads action.yml
+        ↓
+Docker image build (from Dockerfile)
+        ↓
+Container starts
+        ↓
+ENTRYPOINT runs (entrypoint.sh)
+        ↓
+Script writes → $GITHUB_OUTPUT
+        ↓
+GitHub captures outputs
+        ↓
+steps.<id>.outputs.<name>
+        ↓
+Used in next steps / conditions
