@@ -1,0 +1,21 @@
+name: "{Github username}'s Action in Action"
+description: 'Greets someone and returns always 42.'
+
+inputs:
+  who-to-greet:
+    description: 'Name to greet'
+    required: true
+    default: 'World'
+
+outputs:
+  answer:
+    description: 'The answer to everything (always 42)'
+
+runs:
+  # For more on Docker actions, see:
+  # https://docs.github.com/en/actions/sharing-automations/creating-actions/creating-a-docker-container-action
+  using: docker
+  # 'docker://image:tag' uses pre-built image, 'Dockerfile' builds locally
+  image: 'Dockerfile'
+  args:
+    - ${{ inputs.who-to-greet }}
